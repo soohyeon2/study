@@ -15,8 +15,12 @@ public class Main {
 	
 	// machine의 매개변수는 인형이다!
 	public static void machine(pokemon doll) {
-		//추상 클래스
+		//오버라이딩
 		doll.pick();
+		// 상속관계에서 상위클래스에 설게된 메소드를 하위클래스에서 재정의
+		// => 업캐스팅된 상태에서 오버라이딩한 메소드를 호출하면 하위클래스의 메소드가 실행
+		
+		
 		//다운캐스팅
 //		if(doll instanceof Pika)
 //			((Pika)doll).pick();//아무때나 pika로 바꾸면 안되겠다.
