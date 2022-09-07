@@ -10,6 +10,7 @@ public class Main {
 		machine(new Pika());
 		machine(new Pari());
 		machine(new Kko());
+		machine(new Maga());
 
 	}
 	
