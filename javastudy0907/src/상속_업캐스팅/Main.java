@@ -15,7 +15,13 @@ public class Main {
 	
 	// machine의 매개변수는 인형이다!
 	public static void machine(pokemon doll) {
-		doll.pick();
+		//다운캐스팅
+		if(doll instanceof Pika)
+			((Pika)doll).pick();//아무때나 pika로 바꾸면 안되겠다.
+		else if(doll instanceof Pari)
+			((Pari)doll).pick();
+		else if(doll instanceof Kko)
+			((Kko)doll).pick();
 	}
 	
 
