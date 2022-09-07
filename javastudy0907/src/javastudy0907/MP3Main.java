@@ -10,7 +10,7 @@ public class MP3Main {
 	public static void main(String[] args) {
 		ArrayList<MP3> playlist = new ArrayList<MP3>();
 		playlist.add(new MP3("태연", "사계", 100,"C:\\Users\\smhrd\\git\\study\\javastudy0907\\src\\music\\사계 - 태연.mp3"));
-		playlist.add(new MP3("Rain", "깡", 200,"C:\\Users\\smhrd\\git\\study\\javastudy0907\\src\\music\\깡 - Rain.mp3"));
+		playlist.add(new MP3("뉴진스", "hypeboy", 200,"C:\\Users\\smhrd\\git\\study\\javastudy0907\\src\\music\\NewJeans_-_Hype_Boy.mp3"));
 		playlist.add(new MP3("IVE", "LOVE DIVE", 300,"C:\\Users\\smhrd\\git\\study\\javastudy0907\\src\\music\\LOVE DIVE - IVE.mp3"));
 		
 		
@@ -44,6 +44,7 @@ public class MP3Main {
 			case 3:
 				i--;
 				if(i<0) {
+					// 0보다 작아지면 마지막곡으로
 					i=playlist.size()-1;
 				}
 				mp.stop();
@@ -56,6 +57,7 @@ public class MP3Main {
 			case 4:
 				i++;
 				if(i>playlist.size()-1) {
+					//리스트보다 커지면 처음곡으로
 					i=0;
 				}
 				mp.stop();
