@@ -32,23 +32,22 @@ public class ex03_select {
 	         // 3. sql 작성/전송
 	         // 아이디 비밀번호 이름 나이
 	         // "hyebin", "1234", "이혜빈", 24
-	         String sql = "select * from member where id =?" ;
+	         String sql = "select * from member" ;
 	         PreparedStatement psmt = conn.prepareStatement(sql);
-	         psmt.setString(1, "sh");
+	         //psmt.setString(1, "sh");
 	         
 	         ResultSet rs = psmt.executeQuery();
 	         // CURD : Create, Update, Read, Delete
 	         // excuteUpdate() : insert, update, delete -> 리턴값 :int
 	         // excuteQuery() : select
-	         
-	         rs.next();
+	         while(rs.next()) {
 	         String id1 = rs.getString(1);
 	         String pw1 = rs.getString(2);
 	         String name1 = rs.getString(3);
 	         int age1 = rs.getInt(4);
 	         
-	         System.out.printf("%s\t%s\t%s\t%d",id1,pw1,name1,age1);
-	         
+	         System.out.printf("%s\t%s\t%s\t%d\n",id1,pw1,name1,age1);
+	         }
 	         
 	         // 4. 종료
 	         if(rs!=null) {
