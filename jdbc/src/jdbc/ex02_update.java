@@ -21,7 +21,7 @@ public class ex02_update {
 			         // 2. DB와 연결
 			         // DB에 접근할 때 -> 변수를 사용해서 url, id, pw를 사용
 			         // localhost = 127.0.0.1 -> 내 컴퓨터 ip주소
-			         String url = "jdbc:oracle:thin:@127.0.0.1:1521:Xe";
+			         String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 			         String id = "hr";
 			         String pw = "hr";
 			         

@@ -3,16 +3,13 @@ package jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class jdbc {
+public class ex03_select {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// JDBC 연결 순수(4단계)
-	      // 선행작업 - ojdbc6.jar 
-	      
-	      try {
+		try {
 	         // 1.JDBC 동적로딩
 	         Class.forName("oracle.jdbc.driver.OracleDriver");
 	         
@@ -35,19 +32,28 @@ public class jdbc {
 	         // 3. sql 작성/전송
 	         // 아이디 비밀번호 이름 나이
 	         // "hyebin", "1234", "이혜빈", 24
-	         String sql = "insert into member values('hyebin', '1234', '이혜빈', 24)";
+	         String sql = "select * from member where id =?" ;
 	         PreparedStatement psmt = conn.prepareStatement(sql);
-	         int cnt = psmt.executeUpdate();
+	         psmt.setString(1, "sh");
 	         
-	         System.out.println("cnt 값 : "+cnt);
-	         if(cnt>0) {
-	        	 System.out.println("insert 성공");
-	         }
-	         else {
-	        	 System.out.println("insert 실패");
-	         }
+	         ResultSet rs = psmt.executeQuery();
+	         // CURD : Create, Update, Read, Delete
+	         // excuteUpdate() : insert, update, delete -> 리턴값 :int
+	         // excuteQuery() : select
+	         
+	         rs.next();
+	         String id1 = rs.getString(1);
+	         String pw1 = rs.getString(2);
+	         String name1 = rs.getString(3);
+	         int age1 = rs.getInt(4);
+	         
+	         System.out.printf("%s\t%s\t%s\t%d",id1,pw1,name1,age1);
+	         
 	         
 	         // 4. 종료
+	         if(rs!=null) {
+	        	 rs.close();
+	         }
 	         if(psmt!=null) {
 	        	 psmt.close();
 	         }
@@ -60,6 +66,7 @@ public class jdbc {
 	      } catch(SQLException e) {
 	         System.out.println("DB연결 실패!");
 	      }
+
 	}
 
 }
